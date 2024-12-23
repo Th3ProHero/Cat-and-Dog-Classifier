@@ -12,6 +12,28 @@ El entrenamiento se realiza durante 10 épocas, utilizando el optimizador Adam y
 
 Este clasificador puede cargarse nuevamente para hacer predicciones sobre nuevas imágenes.
 
+## Descripción de la Versión 1
+
+Esta primera versión del clasificador de imágenes utiliza una arquitectura más simple en comparación con la versión optimizada. Sin embargo, incluye los componentes básicos necesarios para realizar la clasificación de imágenes de gatos y perros, con algunos aspectos clave:
+
+1. **Preprocesamiento Básico de Imágenes:**  
+   El modelo realiza un preprocesamiento de las imágenes mediante transformaciones básicas que incluyen el cambio de tamaño a 128x128 píxeles, la conversión de las imágenes a tensores y la normalización de los valores de píxeles. Aunque estas transformaciones son fundamentales, no incluyen técnicas de aumento de datos, lo que puede limitar la capacidad del modelo para generalizar.
+
+2. **Arquitectura Simple:**  
+   El modelo tiene una arquitectura de red neuronal convolucional (CNN) básica con dos capas de convolución seguidas de capas de pooling. Esta estructura es adecuada para tareas simples de clasificación de imágenes, pero es menos profunda que la versión optimizada y no captura características tan complejas de las imágenes.
+
+3. **Entrenamiento con Pérdida de Entropía Cruzada:**  
+   Se usa la función de pérdida `CrossEntropyLoss` y el optimizador `Adam` para entrenar el modelo. La configuración es adecuada para tareas de clasificación binaria, como la clasificación de gatos y perros.
+
+4. **Entrenamiento por 10 Épocas:**  
+   El modelo se entrena durante 10 épocas, lo que es un número adecuado para tareas simples, aunque en modelos más complejos o para mejorar la precisión, se podría aumentar este valor.
+
+5. **Validación y Precisión:**  
+   El modelo se evalúa en un conjunto de validación para calcular la precisión. Esto permite conocer el rendimiento del modelo en datos no vistos durante el entrenamiento.
+
+6. **Guardar y Cargar el Modelo:**  
+   El modelo entrenado se guarda en un archivo `.pth` para poder reutilizarlo posteriormente sin necesidad de entrenarlo de nuevo. Este archivo se puede cargar en cualquier momento para hacer predicciones.
+
 ## Mejoras en la version 2:
 
 Este código introduce varias mejoras clave sobre el modelo original:
